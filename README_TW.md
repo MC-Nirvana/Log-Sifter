@@ -101,7 +101,7 @@ is_regex = true
 - 在社交媒體上分享這個項目
 - 參與項目討論，提供寶貴意見
 
-### 拾：贊助支援
+### 拾、贊助支援
 如果你希望支援本項目的持續開發和維護，可以通過以下方式贊助：
 
 - [麵包多](https://mbd.pub/o/MC_Nirvana) - 通過麵包多贊助（適用於中國大陸地區用戶）
@@ -110,3 +110,7 @@ is_regex = true
 您的贊助將用於：
 - 維護項目基礎設施
 - 請作者去碼頭整點薯條:)
+
+## 拾壹、官方社群
+- [QQ](https://qm.qq.com/q/u1FEfZMFe8)
+- [Discord](https://discord.gg/4CVVEkC9aB)

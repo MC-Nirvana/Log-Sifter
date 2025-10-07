@@ -14,13 +14,13 @@
 ## Ⅰ. Introduction
 Log Sifter is a mod designed specifically for Minecraft NeoForge servers and clients (internal codename: Plana-01) , which filters and blocks redundant log information generated in the game. This module is based on the NeoForge platform and can help users reduce noise in log files by customizing configuration rules, making important information more prominent and visible.
 
-## Ⅱ. Main Features
+## II. Main Features
 - **Log Filtering**: Define rules through configuration files to block specific log outputs
 - **Regular Expression Support**: Support precise log content matching using regular expressions
 - **Dynamic Configuration**: Support loading and applying filtering rules at runtime
 - **Lightweight Design**: Does not modify core game functions, focusing only on log management
 
-## Ⅲ. Installation Guide
+## III. Installation Guide
 ### 3-1：Prerequisites
 - Installed supported Minecraft version (1.21.1)
 - Installed corresponding NeoForge version (21.1.200 or higher)
@@ -32,7 +32,7 @@ Log Sifter is a mod designed specifically for Minecraft NeoForge servers and cli
 5. Restart the server to apply changes
 6. Enjoy the clean console and logs brought by Log Sifter
 
-## Ⅳ. Configuration File
+## IV. Configuration File
 The configuration file is located in the `config` directory and is named `log_sifter.toml`. This file uses TOML format for configuration. Here is a sample configuration file:
 ```toml
 # Log Sifter Default Configuration
@@ -68,7 +68,7 @@ If you want to build the plugin from source code, you need Java Development Kit 
 - Recommended to use IntelliJ IDEA for development
 - After importing the project, ensure Gradle dependencies download correctly
 
-## Ⅵ. Contribution and Support
+## VI. Contribution and Support
 Welcome to submit bug reports and feature suggestions through GitHub Issues
 
 ### 6-1：Contribution Methods
@@ -89,19 +89,19 @@ Welcome to submit bug reports and feature suggestions through GitHub Issues
 - Please ensure code passes all tests before submitting a Pull Request
 - Maintain consistent code style, refer to existing code structure
 
-## Ⅶ. Project Roadmap
+## VII. Project Roadmap
 - [ ] Add log level modification functionality
 
-## Ⅷ.  License
+## VIII.  License
 This project uses the [GPL-3.0 license](LICENSE) open source license
 
-## Ⅸ. Support and Feedback
+## IX. Support and Feedback
 If you like this project, please consider:
 - Giving the project a Star ⭐
 - Sharing this project on social media
 - Participating in project discussions and providing valuable feedback
 
-### Ⅹ：Sponsorship Support
+### Ⅹ. Sponsorship Support
 If you wish to support the continued development and maintenance of this project, you can sponsor through the following methods:
 
 - [MianBaoDuo](https://mbd.pub/o/MC_Nirvana) - Sponsor through MianBaoDuo (suitable for mainland China users)
@@ -110,3 +110,7 @@ If you wish to support the continued development and maintenance of this project
 Your sponsorship will be used for:
 - Maintaining project infrastructure
 - Buying french fries for the author at the dock :)
+
+## XI. Official Community
+- [QQ](https://qm.qq.com/q/u1FEfZMFe8)
+- [Discord](https://discord.gg/4CVVEkC9aB)

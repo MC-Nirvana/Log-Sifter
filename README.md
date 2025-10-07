@@ -101,7 +101,7 @@ is_regex = true
 - 在社交媒体上分享这个项目
 - 参与项目讨论，提供宝贵意见
 
-### 十：赞助支持
+## 十：赞助支持
 如果你希望支持本项目的持续开发和维护，可以通过以下方式赞助：
 
 - [面包多](https://mbd.pub/o/MC_Nirvana) - 通过面包多赞助（适用于中国大陆地区用户）
@@ -110,3 +110,7 @@ is_regex = true
 您的赞助将用于：
 - 维护项目基础设施
 - 请作者去码头整点薯条:)
+
+## 十一：官方社区
+- [QQ](https://qm.qq.com/q/u1FEfZMFe8)
+- [Discord](https://discord.gg/4CVVEkC9aB)
