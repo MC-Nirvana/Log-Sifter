@@ -1,0 +1,19 @@
+# Log Sifter 默认配置文件（Log Sifter Default Configuration）
+
+# 屏蔽规则 - 完全阻止匹配的日志输出（Suppress Rules - Completely prevent matching log output）
+# 每一条[[suppress.rule]]表示一条屏蔽规则（Each [[suppress.rule]] represents one suppress rule）
+# 格式:（Format:）
+# logger: 日志来源（logger: Log source）
+# message: 消息匹配，可以是文本或正则表达式（message: Message, can be text or regex）
+# is_regex: 是否为正则表达式，默认为false（is_regex: Whether it is a regular expression, default is false）
+[suppress]
+
+[[suppress.rule]]
+logger = "net.minecraft.world.item.crafting.RecipeManager"
+message = "Parsing error loading recipe .*"
+is_regex = true
+
+[[suppress.rule]]
+logger = "net.minecraft.advancements.AdvancementTree"
+message = "Couldn't load advancements: .*"
+is_regex = true
