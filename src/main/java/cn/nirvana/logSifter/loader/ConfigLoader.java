@@ -1,11 +1,8 @@
 package cn.nirvana.logSifter.loader;
 
 import cn.nirvana.logSifter.util.FileUtil;
-
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
-
 import net.neoforged.fml.loading.FMLPaths;
-
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +34,6 @@ public class ConfigLoader {
 
     @SuppressWarnings("unchecked")
     private void parseConfig(CommentedFileConfig config) {
-        // 解析屏蔽规则
         Object suppressObj = config.get("suppress");
         if (suppressObj instanceof com.electronwill.nightconfig.core.Config) {
             com.electronwill.nightconfig.core.Config suppressTable = (com.electronwill.nightconfig.core.Config) suppressObj;
@@ -49,7 +45,8 @@ public class ConfigLoader {
                     String message = ruleConfig.get("message");
                     Boolean isRegex = ruleConfig.get("is_regex");
 
-                    if (logger != null && message != null) {
+                    // 现在只需要 message 不为空即可添加规则
+                    if (message != null) {
                         boolean regex = isRegex != null && isRegex;
                         suppressRules.add(new FilterRule(logger, message, regex));
                     }
@@ -66,14 +63,14 @@ public class ConfigLoader {
         private final String loggerName;
         private final String message;
         private final boolean isRegex;
-        private final Pattern pattern; // 仅在使用正则表达式时使用
+        private final Pattern pattern;
 
         public FilterRule(String loggerName, String message, boolean isRegex) {
-            this.loggerName = loggerName;
+            // 如果 logger 为空，将其转换为空字符串，便于后续判断
+            this.loggerName = (loggerName == null) ? "" : loggerName;
             this.message = message;
             this.isRegex = isRegex;
 
-            // 预编译正则表达式以提高性能
             if (isRegex) {
                 this.pattern = Pattern.compile(message);
             } else {
@@ -82,33 +79,29 @@ public class ConfigLoader {
         }
 
         public boolean matches(String logger, String logMessage) {
-            if (logger == null || logMessage == null) {
+            if (logMessage == null) {
                 return false;
             }
 
-            // 检查logger名称是否匹配
-            if (!logger.startsWith(loggerName)) {
-                return false;
+            // --- 核心逻辑：留空即全域匹配 ---
+            // 只有当配置了具体的 loggerName 时，才校验来源前缀
+            if (!this.loggerName.isEmpty()) {
+                if (logger == null || !logger.startsWith(this.loggerName)) {
+                    return false;
+                }
             }
 
             // 根据匹配类型检查消息内容
             if (isRegex) {
-                return pattern.matcher(logMessage).matches();
+                // 使用 find() 以便在长堆栈中检索特征
+                return pattern.matcher(logMessage).find();
             } else {
                 return logMessage.contains(message);
             }
         }
 
-        public String getLoggerName() {
-            return loggerName;
-        }
-
-        public String getMessage() {
-            return message;
-        }
-
-        public boolean isRegex() {
-            return isRegex;
-        }
+        public String getLoggerName() { return loggerName; }
+        public String getMessage() { return message; }
+        public boolean isRegex() { return isRegex; }
     }
 }

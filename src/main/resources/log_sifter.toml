@@ -1,19 +1,56 @@
-# Log Sifter 默认配置文件（Log Sifter Default Configuration）
+# Log Sifter 配置文件
+# Log Sifter 設定檔
+# Log Sifter Configuration
 
-# 屏蔽规则 - 完全阻止匹配的日志输出（Suppress Rules - Completely prevent matching log output）
-# 每一条[[suppress.rule]]表示一条屏蔽规则（Each [[suppress.rule]] represents one suppress rule）
-# 格式:（Format:）
-# logger: 日志来源（logger: Log source）
-# message: 消息匹配，可以是文本或正则表达式（message: Message, can be text or regex）
-# is_regex: 是否为正则表达式，默认为false（is_regex: Whether it is a regular expression, default is false）
 [suppress]
 
-[[suppress.rule]]
-logger = "net.minecraft.world.item.crafting.RecipeManager"
-message = "Parsing error loading recipe .*"
-is_regex = true
+# 屏蔽规则 - 完全阻止匹配的日志输出
+# 屏蔽規則 - 完全阻止匹配的日誌輸出
+# Suppress Rules - Completely prevent matching log output
+#
+# 每一条 [[suppress.rule]] 表示一条屏蔽规则
+# 每一條 [[suppress.rule]] 表示一條屏蔽規則
+# Each [[suppress.rule]] represents one suppress rule
+#
+# 格式说明:
+# 格式說明:
+# Format Guide:
+# logger:   日志来源标签，留空则匹配所有来源
+#           日誌來源標籤，留空則匹配所有來源
+#           Log source, leave empty to match all sources
+# message:  匹配内容，支持普通文本或正则表达式
+#           匹配內容，支持普通文本或正規表示式
+#           Message content, supports plain text or regex
+# is_regex: 是否开启正则匹配，默认 false
+#           是否開啟正規匹配，預設 false
+#           Whether to enable regex, default is false
 
-[[suppress.rule]]
-logger = "net.minecraft.advancements.AdvancementTree"
-message = "Couldn't load advancements: .*"
-is_regex = true
+# ---------------------------------------------------------
+# 以下为用法示例，如需使用请取消注释（删除行首的 #）
+# 以下為用法示例，如需使用請取消注釋（刪除行首的 #）
+# Examples below, uncomment to use (remove '#' at start of line)
+# ---------------------------------------------------------
+
+# 示例 1：全局拦截特定关键词（不限来源）
+# 示例 1：全域攔截特定關鍵字（不限來源）
+# Example 1: Global suppress for specific keyword (all sources)
+# [[suppress.rule]]
+# logger = ""
+# message = "net.minecraft.client.color.block.BlockColor"
+# is_regex = false
+
+# 示例 2：拦截由本 Mod 重定向的原生报错（使用正则表达式）
+# 示例 2：攔截由本 Mod 重定向的原生報錯（使用正規表示式）
+# Example 2: Suppress redirected errors from this mod (using regex)
+# [[suppress.rule]]
+# logger = "system.err.Redirector"
+# message = ".*FileNotFoundException.*"
+# is_regex = true
+
+# 示例 3：拦截特定 Mod 的日志
+# 示例 3：攔截特定 Mod 的日誌
+# Example 3: Suppress logs from a specific mod
+# [[suppress.rule]]
+# logger = "example_mod_id"
+# message = "example info message"
+# is_regex = false
