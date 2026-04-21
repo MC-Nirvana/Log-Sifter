@@ -2,8 +2,6 @@
 # Log Sifter 設定檔
 # Log Sifter Configuration
 
-[suppress]
-
 # 屏蔽规则 - 完全阻止匹配的日志输出
 # 屏蔽規則 - 完全阻止匹配的日誌輸出
 # Suppress Rules - Completely prevent matching log output
@@ -54,3 +52,5 @@
 # logger = "example_mod_id"
 # message = "example info message"
 # is_regex = false
+
+[suppress]
